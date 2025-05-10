@@ -5,58 +5,102 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Love & Tedine | Lait Caillé Artisanal</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    :root {
+      --primary: #8b5a2b;
+      --secondary: #fff8f1;
+      --accent: #a86d3f;
+    }
     body {
-      background-color: #fff8f1;
+      background-color: var(--secondary);
       font-family: 'Segoe UI', sans-serif;
-      margin: 0;
     }
     .navbar {
-      background-color: #8b5a2b;
+      background-color: var(--primary);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
     .navbar-brand, .nav-link {
       color: white !important;
       font-weight: bold;
     }
     .hero {
-      background: url('logo_love_et_tedine.jpg') center/cover no-repeat;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
       color: white;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
-      padding: 6rem 2rem;
+      padding: 8rem 2rem;
       text-align: center;
       min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .hero h1 {
       font-size: 3rem;
       font-weight: bold;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
     }
-    .order-section, .about-section, .subscribe-section {
-      padding: 4rem 2rem;
+    .hero p {
+      font-size: 1.5rem;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+    }
+    section {
+      padding: 5rem 0;
     }
     h2 {
-      color: #8b5a2b;
+      color: var(--primary);
       margin-bottom: 2rem;
+      position: relative;
     }
-    footer {
-      background-color: #8b5a2b;
-      color: white;
-      text-align: center;
-      padding: 2rem 1rem;
+    h2:after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: var(--accent);
+      margin: 1rem auto;
     }
     .btn-primary {
-      background-color: #8b5a2b;
+      background-color: var(--primary);
       border: none;
+      padding: 12px 30px;
+      transition: all 0.3s;
     }
     .btn-primary:hover {
-      background-color: #a86d3f;
+      background-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .confirmation-message {
+      display: none;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    footer {
+      background-color: var(--primary);
+      color: white;
+      padding: 2rem 1rem;
+    }
+    .social-icon {
+      color: white;
+      font-size: 1.5rem;
+      margin: 0 10px;
+      transition: all 0.3s;
+    }
+    .social-icon:hover {
+      color: var(--secondary);
+      transform: translateY(-3px);
     }
   </style>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg">
+  <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
-      <a class="navbar-brand" href="#">Love & Tedine</a>
+      <a class="navbar-brand" href="#">
+        <i class="fas fa-cheese me-2"></i>Love & Tedine
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -64,94 +108,190 @@
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="#about">Notre Histoire</a></li>
           <li class="nav-item"><a class="nav-link" href="#order">Commander</a></li>
-          <li class="nav-item"><a class="nav-link" href="#subscribe">Newsletter</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
   <section class="hero">
-    <h1>Lait Caillé 100% Artisanal</h1>
-    <p>Produit localement avec soin par deux sœurs passionnées</p>
-    <a href="#order" class="btn btn-light btn-lg mt-4">Passer commande</a>
+    <div>
+      <h1>Lait Caillé 100% Artisanal</h1>
+      <p class="lead">Produit localement avec soin par deux sœurs passionnées</p>
+      <a href="#order" class="btn btn-light btn-lg mt-4">
+        <i class="fas fa-shopping-cart me-2"></i>Passer commande
+      </a>
+    </div>
   </section>
 
   <section id="about" class="about-section">
     <div class="container">
       <h2 class="text-center">Notre Histoire</h2>
-      <p class="lead">Love & Tedine est une initiative portée par deux sœurs gabonaises, Love (actuellement étudiante en Licence 3 de droit public et science politique) et Tédine (diplômée d'un Master de l'Université Omar Bongo). L'idée est née d'une volonté commune de créer une activité artisanale porteuse de sens, favorisant l'autonomie financière et la valorisation des savoir-faire locaux.</p>
-      <p>Love & Tedine, c'est plus qu'une marque : c'est un symbole de solidarité familiale, d'esprit d'initiative, et d'engagement envers une alimentation saine et locale.</p>
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Love & Tedine" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-lg-6">
+          <p class="lead">Love & Tedine est une initiative portée par deux sœurs gabonaises, Love (étudiante en droit) et Tedine (diplômée en Master).</p>
+          <p>Notre entreprise artisanale met en valeur les savoir-faire locaux tout en promouvant une alimentation saine et naturelle. Chaque pot de lait caillé est préparé avec soin selon des méthodes traditionnelles, sans conservateurs ni additifs.</p>
+          <p>Nous nous engageons à soutenir les producteurs locaux et à offrir un produit de qualité supérieure à nos clients.</p>
+        </div>
+      </div>
     </div>
   </section>
 
   <section id="order" class="order-section bg-light">
     <div class="container">
       <h2 class="text-center">Commander votre Lait Caillé</h2>
-      <form action="https://formsubmit.io/send/biteghelove63@gmail.com" method="POST" class="mx-auto" style="max-width: 600px;">
-        <input type="hidden" name="_subject" value="Nouvelle commande Love&Tedine">
-        <div class="mb-3">
-          <label class="form-label">Nom complet</label>
-          <input type="text" name="name" class="form-control" required>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Numéro de téléphone</label>
-          <input type="tel" name="phone" class="form-control" required>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Choix des produits</label>
-          <div class="row">
-            <div class="col-md-6">
-              <label>Grande bouteille (1L - 2 500 FCFA)</label>
-              <input type="number" name="grande" class="form-control" min="0" value="0">
-            </div>
-            <div class="col-md-6">
-              <label>Petite bouteille (environ 330-500ml - 1 000 FCFA)</label>
-              <input type="number" name="petite" class="form-control" min="0" value="0">
+      
+      <!-- Formulaire de commande -->
+      <form id="commandeForm" class="mx-auto" style="max-width: 600px;">
+        <div id="formFields">
+          <input type="hidden" name="_subject" value="Nouvelle commande Love&Tedine">
+          
+          <div class="mb-3">
+            <label class="form-label">Nom complet</label>
+            <input type="text" name="Nom" class="form-control" required>
+          </div>
+          
+          <div class="mb-3">
+            <label class="form-label">Numéro de téléphone</label>
+            <input type="tel" name="Téléphone" class="form-control" required>
+          </div>
+          
+          <div class="mb-3">
+            <label class="form-label">Choix des produits</label>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <div class="card h-100">
+                  <div class="card-body">
+                    <h5>Grande bouteille (1L)</h5>
+                    <p class="text-muted">2 500 FCFA</p>
+                    <input type="number" name="Grande bouteille" class="form-control" min="0" value="0">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="card h-100">
+                  <div class="card-body">
+                    <h5>Petite bouteille (500ml)</h5>
+                    <p class="text-muted">1 500 FCFA</p>
+                    <input type="number" name="Petite bouteille" class="form-control" min="0" value="0">
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+          
+          <div class="mb-3">
+            <label class="form-label">Saveur souhaitée</label>
+            <select name="Saveur" class="form-select" required>
+              <option value="">-- Choisissez une option --</option>
+              <option value="Nature">Nature</option>
+              <option value="Gingembre">Gingembre</option>
+              <option value="Vanille">Vanille</option>
+              <option value="Fruits locaux">Fruits locaux</option>
+            </select>
+          </div>
+          
+          <div class="mb-3">
+            <label class="form-label">Adresse de livraison (Libreville)</label>
+            <textarea name="Adresse" class="form-control" rows="3" required></textarea>
+            <small class="text-muted">Frais de livraison: jusqu'à 1 500 FCFA selon la zone</small>
+          </div>
+          
+          <div class="mb-3">
+            <label class="form-label">Méthode de paiement</label>
+            <select name="Paiement" class="form-select" required>
+              <option value="">-- Choisissez une option --</option>
+              <option value="Mobile Money">Mobile Money</option>
+              <option value="Espèces">Espèces à la livraison</option>
+            </select>
+          </div>
+          
+          <button type="submit" class="btn btn-primary w-100 py-3">
+            <i class="fas fa-paper-plane me-2"></i>Envoyer la commande
+          </button>
         </div>
-        <div class="mb-3">
-          <label class="form-label">Saveur souhaitée</label>
-          <select name="flavor" class="form-select">
-            <option value="Nature">Nature</option>
-            <option value="Gingembre">Gingembre</option>
-            <option value="Vanille">Vanille</option>
-            <option value="Fruits locaux">Fruits locaux</option>
-          </select>
+        
+        <!-- Message de confirmation -->
+        <div id="confirmationMessage" class="confirmation-message text-center mt-5">
+          <div class="alert alert-success">
+            <h3><i class="fas fa-check-circle me-2"></i>Merci pour votre commande !</h3>
+            <p>Nous avons bien reçu votre demande et vous contacterons dans les plus brefs délais pour confirmation.</p>
+            <p>Un SMS de confirmation vous sera envoyé au numéro fourni.</p>
+            <a href="#about" class="btn btn-outline-primary mt-3">
+              <i class="fas fa-chevron-left me-2"></i>Retour au site
+            </a>
+          </div>
         </div>
-        <div class="mb-3">
-          <label class="form-label">Adresse de livraison (Libreville)</label>
-          <textarea name="address" class="form-control" rows="3" required></textarea>
-          <small class="text-muted">Livraison possible avec frais (jusqu'à 1 500 FCFA) ou retrait sur place à Nzeng-Ayong.</small>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Message supplémentaire</label>
-          <textarea name="message" class="form-control" rows="2"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary w-100">Envoyer la commande</button>
       </form>
     </div>
   </section>
 
-  <section id="subscribe" class="subscribe-section">
+  <section id="contact" class="contact-section">
     <div class="container text-center">
-      <h2>Restez informé</h2>
-      <p>Recevez nos nouveautés, offres et actualités directement par mail.</p>
-      <form action="https://formsubmit.io/send/biteghelove63@gmail.com" method="POST" class="row justify-content-center g-2">
-        <input type="hidden" name="_subject" value="Nouvel abonnement newsletter">
-        <div class="col-md-6">
-          <input type="email" name="email" class="form-control" placeholder="Votre adresse email" required>
+      <h2>Contactez-nous</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <p><i class="fas fa-phone-alt me-2"></i> 077 30 77 80 / 077 94 19 90</p>
+          <p><i class="fas fa-envelope me-2"></i> biteghelove63@gmail.com</p>
+          <p><i class="fas fa-map-marker-alt me-2"></i> Nzeng-Ayong, Libreville</p>
+          
+          <div class="mt-4">
+            <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+          </div>
         </div>
-        <div class="col-md-2">
-          <button type="submit" class="btn btn-primary w-100">S'abonner</button>
-        </div>
-      </form>
+      </div>
     </div>
   </section>
 
   <footer>
-    <p><strong>Love & Tedine</strong> | Contact : 077307780 / 077941990 | Quartier Nzeng-Ayong</p>
-    <p>&copy; 2024 Tous droits réservés.</p>
+    <div class="container">
+      <p class="mb-0"><strong>Love & Tedine</strong> - Lait caillé artisanal gabonais</p>
+      <p class="mb-0">&copy; 2024 Tous droits réservés</p>
+    </div>
   </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    document.getElementById('commandeForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Envoyer les données via FormSubmit
+      const formData = new FormData(this);
+      const formAction = 'https://formsubmit.co/ajax/biteghelove63@gmail.com';
+      
+      fetch(formAction, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          // Afficher le message de confirmation
+          document.getElementById('formFields').style.display = 'none';
+          document.getElementById('confirmationMessage').style.display = 'block';
+          
+          // Faire défiler jusqu'au message de confirmation
+          document.getElementById('confirmationMessage').scrollIntoView({ behavior: 'smooth' });
+          
+          // Réinitialiser le formulaire (optionnel)
+          this.reset();
+        } else {
+          throw new Error('Erreur lors de l\'envoi');
+        }
+      })
+      .catch(error => {
+        alert('Une erreur est survenue. Veuillez nous contacter directement par téléphone.');
+        console.error(error);
+      });
+    });
+  </script>
 </body>
 </html>
