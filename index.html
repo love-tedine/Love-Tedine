@@ -25,7 +25,7 @@
       font-weight: bold;
     }
     .hero {
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('logo_love_et_tedine.jpg') center/cover no-repeat;
       color: white;
       padding: 8rem 2rem;
       text-align: center;
@@ -93,6 +93,16 @@
       color: var(--secondary);
       transform: translateY(-3px);
     }
+    .product-card {
+      border-radius: 10px;
+      overflow: hidden;
+      transition: all 0.3s;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
   </style>
 </head>
 <body>
@@ -107,6 +117,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="#about">Notre Histoire</a></li>
+          <li class="nav-item"><a class="nav-link" href="#products">Nos Produits</a></li>
           <li class="nav-item"><a class="nav-link" href="#order">Commander</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
@@ -129,7 +140,7 @@
       <h2 class="text-center">Notre Histoire</h2>
       <div class="row align-items-center">
         <div class="col-lg-6 mb-4 mb-lg-0">
-          <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Love & Tedine" class="img-fluid rounded shadow">
+          <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Love & Tedine" class="img-fluid rounded shadow product-card">
         </div>
         <div class="col-lg-6">
           <p class="lead">Love & Tedine est une initiative portée par deux sœurs gabonaises, Love (étudiante en droit) et Tedine (diplômée en Master).</p>
@@ -140,43 +151,86 @@
     </div>
   </section>
 
-  <section id="order" class="order-section bg-light">
+  <section id="products" class="products-section bg-light">
+    <div class="container">
+      <h2 class="text-center">Nos Produits</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="card product-card h-100">
+            <img src="https://images.unsplash.com/photo-1576186726115-4d51596775d1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Lait caillé nature">
+            <div class="card-body text-center">
+              <h3>Lait Caillé Nature</h3>
+              <p class="text-muted">Bouteille de 500ml</p>
+              <p>Produit selon des méthodes traditionnelles, sans conservateurs.</p>
+              <p class="fw-bold text-primary">1 500 FCFA</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card product-card h-100">
+            <img src="https://images.unsplash.com/photo-1603569283847-aa295f0d016a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Lait aromatisé">
+            <div class="card-body text-center">
+              <h3>Lait Caillé Aromatisé</h3>
+              <p class="text-muted">Bouteille de 500ml</p>
+              <p>Variants : Gingembre, Vanille, ou Fruits locaux.</p>
+              <p class="fw-bold text-primary">2 000 FCFA</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card product-card h-100">
+            <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Pack familial">
+            <div class="card-body text-center">
+              <h3>Pack Familial</h3>
+              <p class="text-muted">3 bouteilles de 500ml</p>
+              <p>Économisez 10% avec notre offre groupée.</p>
+              <p class="fw-bold text-primary">4 050 FCFA <small class="text-danger"><del>4 500 FCFA</del></small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="order" class="order-section">
     <div class="container">
       <h2 class="text-center">Commander votre Lait Caillé</h2>
       
       <!-- Formulaire de commande -->
       <form id="commandeForm" class="mx-auto" style="max-width: 600px;">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_subject" value="[COMMANDE] Nouvelle commande Love&Tedine">
+        <input type="hidden" name="_autoresponse" value="Merci pour votre commande ! Nous vous contacterons sous 24h.">
+        
         <div id="formFields">
-          <input type="hidden" name="_subject" value="Nouvelle commande Love&Tedine">
-          
           <div class="mb-3">
-            <label class="form-label">Nom complet</label>
+            <label class="form-label">Nom complet*</label>
             <input type="text" name="Nom" class="form-control" required>
           </div>
           
           <div class="mb-3">
-            <label class="form-label">Numéro de téléphone</label>
+            <label class="form-label">Numéro de téléphone*</label>
             <input type="tel" name="Téléphone" class="form-control" required>
           </div>
           
           <div class="mb-3">
-            <label class="form-label">Choix des produits</label>
-            <div class="row">
-              <div class="col-md-6 mb-3">
+            <label class="form-label">Produits*</label>
+            <div class="row g-3">
+              <div class="col-md-6">
                 <div class="card h-100">
                   <div class="card-body">
                     <h5>Grande bouteille (1L)</h5>
                     <p class="text-muted">2 500 FCFA</p>
-                    <input type="number" name="Grande bouteille" class="form-control" min="0" value="0">
+                    <input type="number" name="Grande bouteille" class="form-control" min="0" value="0" required>
                   </div>
                 </div>
               </div>
-              <div class="col-md-6 mb-3">
+              <div class="col-md-6">
                 <div class="card h-100">
                   <div class="card-body">
                     <h5>Petite bouteille (500ml)</h5>
                     <p class="text-muted">1 500 FCFA</p>
-                    <input type="number" name="Petite bouteille" class="form-control" min="0" value="0">
+                    <input type="number" name="Petite bouteille" class="form-control" min="0" value="0" required>
                   </div>
                 </div>
               </div>
@@ -184,9 +238,8 @@
           </div>
           
           <div class="mb-3">
-            <label class="form-label">Saveur souhaitée</label>
+            <label class="form-label">Saveur*</label>
             <select name="Saveur" class="form-select" required>
-              <option value="">-- Choisissez une option --</option>
               <option value="Nature">Nature</option>
               <option value="Gingembre">Gingembre</option>
               <option value="Vanille">Vanille</option>
@@ -195,15 +248,13 @@
           </div>
           
           <div class="mb-3">
-            <label class="form-label">Adresse de livraison (Libreville)</label>
+            <label class="form-label">Adresse de livraison (Libreville)*</label>
             <textarea name="Adresse" class="form-control" rows="3" required></textarea>
-            <small class="text-muted">Frais de livraison: jusqu'à 1 500 FCFA selon la zone</small>
           </div>
           
           <div class="mb-3">
-            <label class="form-label">Méthode de paiement</label>
+            <label class="form-label">Méthode de paiement*</label>
             <select name="Paiement" class="form-select" required>
-              <option value="">-- Choisissez une option --</option>
               <option value="Mobile Money">Mobile Money</option>
               <option value="Espèces">Espèces à la livraison</option>
             </select>
@@ -217,33 +268,58 @@
         <!-- Message de confirmation -->
         <div id="confirmationMessage" class="confirmation-message text-center mt-5">
           <div class="alert alert-success">
-            <h3><i class="fas fa-check-circle me-2"></i>Merci pour votre commande !</h3>
-            <p>Nous avons bien reçu votre demande et vous contacterons dans les plus brefs délais pour confirmation.</p>
-            <p>Un SMS de confirmation vous sera envoyé au numéro fourni.</p>
-            <a href="#about" class="btn btn-outline-primary mt-3">
-              <i class="fas fa-chevron-left me-2"></i>Retour au site
-            </a>
+            <h3><i class="fas fa-check-circle me-2"></i>Commande confirmée !</h3>
+            <p class="my-3">Nous avons bien reçu votre commande et vous contacterons sous 24h.</p>
+            <div class="d-flex justify-content-center gap-3 mt-4">
+              <button id="newOrderBtn" class="btn btn-outline-primary">
+                <i class="fas fa-redo me-2"></i>Nouvelle commande
+              </button>
+              <a href="https://wa.me/24177307780" class="btn btn-primary">
+                <i class="fab fa-whatsapp me-2"></i>Nous contacter
+              </a>
+            </div>
           </div>
         </div>
       </form>
     </div>
   </section>
 
-  <section id="contact" class="contact-section">
+  <section id="contact" class="contact-section bg-light">
     <div class="container text-center">
       <h2>Contactez-nous</h2>
-      <div class="row justify-content-center">
-        <div class="col-md-8">
-          <p><i class="fas fa-phone-alt me-2"></i> 077 30 77 80 / 077 94 19 90</p>
-          <p><i class="fas fa-envelope me-2"></i> biteghelove63@gmail.com</p>
-          <p><i class="fas fa-map-marker-alt me-2"></i> Nzeng-Ayong, Libreville</p>
-          
-          <div class="mt-4">
-            <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+      <div class="row justify-content-center mt-4">
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 product-card">
+            <div class="card-body">
+              <i class="fas fa-phone-alt fa-2x mb-3 text-primary"></i>
+              <h5>Téléphone</h5>
+              <p>077 30 77 80<br>077 94 19 90</p>
+            </div>
           </div>
         </div>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 product-card">
+            <div class="card-body">
+              <i class="fas fa-envelope fa-2x mb-3 text-primary"></i>
+              <h5>Email</h5>
+              <p>janickabiteghe@gmail.com<br>biteghelove63@gmail.com</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 product-card">
+            <div class="card-body">
+              <i class="fas fa-map-marker-alt fa-2x mb-3 text-primary"></i>
+              <h5>Adresse</h5>
+              <p>Nzeng-Ayong<br>Libreville, Gabon</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-4">
+        <a href="https://wa.me/24177307780" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
       </div>
     </div>
   </section>
@@ -258,38 +334,45 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   
   <script>
-    document.getElementById('commandeForm').addEventListener('submit', function(e) {
+    // Configuration FormSubmit
+    const form = document.getElementById('commandeForm');
+    form.action = 'https://formsubmit.co/janickabiteghe@gmail.com';
+    
+    form.addEventListener('submit', function(e) {
       e.preventDefault();
       
-      // Envoyer les données via FormSubmit
-      const formData = new FormData(this);
-      const formAction = 'https://formsubmit.co/ajax/biteghelove63@gmail.com';
-      
-      fetch(formAction, {
+      fetch(form.action, {
         method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
       })
       .then(response => {
         if (response.ok) {
-          // Afficher le message de confirmation
+          // Afficher confirmation
           document.getElementById('formFields').style.display = 'none';
           document.getElementById('confirmationMessage').style.display = 'block';
-          
-          // Faire défiler jusqu'au message de confirmation
-          document.getElementById('confirmationMessage').scrollIntoView({ behavior: 'smooth' });
-          
-          // Réinitialiser le formulaire (optionnel)
-          this.reset();
+          window.scrollTo({
+            top: document.getElementById('order').offsetTop,
+            behavior: 'smooth'
+          });
         } else {
-          throw new Error('Erreur lors de l\'envoi');
+          throw new Error('Erreur réseau');
         }
       })
       .catch(error => {
-        alert('Une erreur est survenue. Veuillez nous contacter directement par téléphone.');
+        alert("Erreur : Merci de nous appeler au 077 30 77 80");
         console.error(error);
+      });
+    });
+
+    // Bouton Nouvelle Commande
+    document.getElementById('newOrderBtn').addEventListener('click', function() {
+      document.getElementById('formFields').style.display = 'block';
+      document.getElementById('confirmationMessage').style.display = 'none';
+      form.reset();
+      window.scrollTo({
+        top: document.getElementById('order').offsetTop,
+        behavior: 'smooth'
       });
     });
   </script>
